@@ -2,28 +2,23 @@ import React, { useState, useEffect } from "react";
 import PlantCard from "./PlantCard";
 
 
-let PLANTS = []
-
 function PlantList() {
   const [myPlants, setMyPlants] = useState([])
 
-  const handleAddPlants = (newPlants) => {
-    PLANTS = [...myPlants, newPlants]
+  const fetchPlants = async () => {
   }
-
-  const fetchPlants = () => {
-    fetch('http://localhost:6001/plants')
-    .then(req => req.json())
-    .then(res => {
-      console.log(res)
-      res.forEach((element) => {
-          PLANTS.push(element)
-      })
-      setMyPlants(PLANTS)
-    })
-  }
-
-  useEffect(fetchPlants, [])
+  
+  
+  
+  useEffect(() => {
+    const fetchPlants = async () => {
+      let req = await fetch('http://localhost:6001/plants')
+      let res = await req.json()
+      // console.log(res)
+      setMyPlants(res)
+    }
+    fetchPlants();
+  }, [])
   
   return (
     <ul className="cards">
