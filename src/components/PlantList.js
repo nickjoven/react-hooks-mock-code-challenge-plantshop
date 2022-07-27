@@ -5,13 +5,14 @@ const PlantList = ({plants, handleRemovePlant, handleUpdatePlant}) => {
   return (
     <ul className="cards">
       {plants.map((element, index) => {
+        const { id, name, image, price } = element
         return (
           <PlantCard 
             key={index} 
-            id={element.id}
-            name={element.name} 
-            image={element.image} 
-            price={element.price}
+            id={id}
+            name={name} 
+            image={image} 
+            price={price}
             handleRemovePlant={handleRemovePlant}
             handleUpdatePlant={handleUpdatePlant} 
           />

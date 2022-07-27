@@ -38,7 +38,8 @@ const NewPlantForm = ({handleNewPlant}) => {
         handleSubmit()
         setFormData(defaultFormValues)
       }}>
-        <input type="text" 
+        <input 
+          type="text" 
           name="name" 
           placeholder="Plant name" 
           value={formData.name}
