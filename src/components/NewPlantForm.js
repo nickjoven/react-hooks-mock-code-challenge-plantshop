@@ -17,8 +17,8 @@ const NewPlantForm = ({handleNewPlant}) => {
       body: JSON.stringify(formData)
     })
     .then(req => req.json())
-    .then(res => {
-      handleNewPlant(res)
+    .then(newPlant => {
+      handleNewPlant(newPlant)
     })
   }
 
