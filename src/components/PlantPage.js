@@ -12,6 +12,7 @@ import Search from "./Search";
 
 const PlantPage = () => {
   const [plants, setPlants] = useState([])
+  const [searchTerm, setSearchTerm] = useState('')
 
   const handleNewPlant = (newPlant) => {
     const updatedPlants = [...plants, newPlant]
@@ -43,12 +44,15 @@ const PlantPage = () => {
     fetchPlants()
   }, [])
 
+  const searchedPlants = plants.filter((plant) => {
+    return plant.name.toLowerCase().includes(searchTerm.toLowerCase())
+  })
 
   return (
     <main>
       <NewPlantForm handleNewPlant={handleNewPlant} />
-      <Search />
-      <PlantList plants={plants} />
+      <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      <PlantList plants={searchedPlants} />
     </main>
   );
 }
