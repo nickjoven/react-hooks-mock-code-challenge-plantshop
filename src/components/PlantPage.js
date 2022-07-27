@@ -52,7 +52,11 @@ const PlantPage = () => {
     <main>
       <NewPlantForm handleNewPlant={handleNewPlant} />
       <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      <PlantList plants={searchedPlants} />
+      <PlantList 
+        plants={searchedPlants} 
+        handleRemovePlant={handleRemovePlant} 
+        handleUpdatePlant={handleUpdatePlant}
+        />
     </main>
   );
 }

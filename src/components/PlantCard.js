@@ -1,11 +1,20 @@
 import React, { useState } from "react";
 
-const PlantCard = ({name, image, price}) => {
+const PlantCard = ({id, name, image, price, handleRemovePlant}) => {
   const [isInStock, setIsInStock] = useState(true)
+  const [updatePrice, setUpdatePrice] = useState(price)
 
   const handleIsInStock = () => {
     setIsInStock((isInStock) => !isInStock)
   }
+
+  const handleRemoveClick = async () => {
+    await fetch(`http://localhost:6001/plants/${id}`, {
+      method: "DELETE",
+    })
+    handleRemovePlant(id)
+  }
+
   return (
     <li className="card">
       <img src={image} alt={name} />
@@ -16,6 +25,7 @@ const PlantCard = ({name, image, price}) => {
       ) : (
         <button onClick={handleIsInStock}>Out of Stock</button>
       )}
+      <button onClick={handleRemoveClick}>Delete</button>
     </li>
   );
 }

@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Aloe",
       "image": "./images/aloe.jpg",
-      "price": 15.99
+      "price": 1
     },
     {
       "id": 2,
@@ -37,10 +37,10 @@
       "price": 25.99
     },
     {
-      "id": 7,
-      "name": "Fiddle Leaf Fig",
-      "image": "./images/fiddle-leaf-fig.jpg",
-      "price": 55
+      "name": "Walrus Plant",
+      "image": "https://media.glamour.com/photos/5ea89429e67f360008b064d8/master/w_1172,h_1412,c_limit/Pink%20Anthurium.png",
+      "price": "99.99",
+      "id": 7
     }
   ]
 }

@@ -8,6 +8,20 @@ const defaultFormValues = {
 const NewPlantForm = ({handleNewPlant}) => {
   const [formData, setFormData] = useState(defaultFormValues)
 
+  const handleSubmit = async () => {
+    await fetch('http://localhost:6001/plants', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+    .then(req => req.json())
+    .then(res => {
+      handleNewPlant(res)
+    })
+  }
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -21,6 +35,7 @@ const NewPlantForm = ({handleNewPlant}) => {
       <form onSubmit={(e) => {
         e.preventDefault()
         handleNewPlant(formData)
+        handleSubmit()
         setFormData(defaultFormValues)
       }}>
         <input type="text" 
