@@ -16,7 +16,7 @@ const PlantCard = ({id, name, image, price, handleRemovePlant, handleUpdatePlant
   }
 
   const handleSubmitPrice = async () => {
-    let req = await fetch(`http://localhost:6001/plants/${id}`, {
+    await fetch(`http://localhost:6001/plants/${id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
