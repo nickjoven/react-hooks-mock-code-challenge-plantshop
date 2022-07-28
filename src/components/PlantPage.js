@@ -27,13 +27,34 @@ const PlantPage = () => {
     )
   })
 
+  const handleRemovePlant = (idToRemove) => {
+    const updatedPlants = plants.filter((target) => target.id !== idToRemove)
+    setPlants(updatedPlants)
+  }
+
+  const handleUpdatePlant = (plantToUpdate) => {
+    const updatedPlants = plants.map((plant) => {
+      if (plant.id === plantToUpdate.id) {
+        return plantToUpdate
+      } else { 
+        return plant
+      }
+    })
+    setPlants(updatedPlants)
+  }
+
   return (
     <main>
       <NewPlantForm handleAddPlant={handleAddPlant} />
       <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      <PlantList plants={searchedPlants} />
+      <PlantList 
+        plants={searchedPlants}
+        onRemovePlant={handleRemovePlant}
+        onUpdatePlant={handleUpdatePlant}
+      />
     </main>
   );
 }
 
+// onRemovePlant, onUpdatePlant
 export default PlantPage;

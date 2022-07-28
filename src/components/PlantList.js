@@ -1,7 +1,7 @@
 import React from "react";
 import PlantCard from "./PlantCard";
 
-const PlantList = ({plants}) => {
+const PlantList = ({ plants, onRemovePlant, onUpdatePlant }) => {
   return (
     <ul className="cards">
       {/* render PlantCards components in here */}
@@ -14,6 +14,8 @@ const PlantList = ({plants}) => {
             name={name}
             image={image}
             price={price}
+            onRemovePlant={onRemovePlant}
+            onUpdatePlant={onUpdatePlant}
           />
         )
       })}
