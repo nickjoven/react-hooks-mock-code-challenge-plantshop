@@ -41,6 +41,18 @@
       "name": "Fiddle Leaf Fig",
       "image": "./images/fiddle-leaf-fig.jpg",
       "price": 55
+    },
+    {
+      "name": "Cactus",
+      "image": "https://www.rainforest-alliance.org/wp-content/uploads/2021/06/capybara-square-1-400x400.jpg.webp",
+      "price": "999",
+      "id": 8
+    },
+    {
+      "name": "Cork",
+      "image": "https://www.savacations.com/wp-content/uploads/2021/02/Blog-Capybara-Pantanal-Brazil3.jpg",
+      "price": "2000",
+      "id": 9
     }
   ]
 }
