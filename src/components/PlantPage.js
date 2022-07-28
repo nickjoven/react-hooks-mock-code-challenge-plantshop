@@ -21,17 +21,37 @@ const PlantPage = () => {
     setPlants(updatedPlants)
   }
 
-  const filteredPlants = plants.filter((element) => {
+  const filteredPlants = plants.filter((plant) => {
     return (
-      element.name.toLowerCase().includes(searchTerm.toLowerCase())
+      plant.name.toLowerCase().includes(searchTerm.toLowerCase())
       )
   })
+
+  const handleRemovePlant = (idToRemove) => {
+    const updatedPlants = plants.filter((target) => target.id !== idToRemove)
+    setPlants(updatedPlants)
+  }
+
+  const handleUpdatePlant = (plantToUpdate) => {
+    const updatedPlants = plants.map((plant) => {
+      if (plant.id === plantToUpdate.id) {
+        return plantToUpdate
+      } else {
+        return plant
+      }
+    })
+    setPlants(updatedPlants)
+  }
 
   return (
     <main>
       <NewPlantForm handleAddPlant={handleAddPlant} />
       <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      <PlantList plants={filteredPlants} />
+      <PlantList 
+        plants={filteredPlants} 
+        handleRemovePlant={handleRemovePlant}
+        handleUpdatePlant={handleUpdatePlant}
+      />
     </main>
   );
 }
